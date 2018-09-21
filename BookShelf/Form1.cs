@@ -17,6 +17,7 @@ namespace BookShelf
         OleDbCommand titlesCommand;
         OleDbDataAdapter titlesAdapter;
         DataTable titlesTable;
+        CurrencyManager titlesManager;
 
         public frmTitles()
         {
@@ -49,6 +50,10 @@ namespace BookShelf
             txtISBN.DataBindings.Add("Text", titlesTable, "ISBN");
             txtPubID.DataBindings.Add("Text", titlesTable, "PubID");
 
+            // establish currency manager
+            // titlesManager is now holding an array
+            titlesManager = (CurrencyManager)BindingContext[titlesTable];
+
             // close connection
             conn.Close();
             conn.Dispose();
@@ -56,6 +61,26 @@ namespace BookShelf
             titlesTable.Dispose();
 
            
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            titlesManager.Position = 0;
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            titlesManager.Position--;
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            titlesManager.Position++;
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            titlesManager.Position = titlesManager.Count - 1;
         }
     }
 }
