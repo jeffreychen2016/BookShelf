@@ -59,8 +59,6 @@ namespace BookShelf
             conn.Dispose();
             titlesAdapter.Dispose();
             titlesTable.Dispose();
-
-           
         }
 
         private void btnFirst_Click(object sender, EventArgs e)
