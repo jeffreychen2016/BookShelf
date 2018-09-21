@@ -1,6 +1,6 @@
 ﻿namespace BookShelf
 {
-    partial class Form1
+    partial class frmTitles
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.txtConn = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // txtConn
+            // 
+            this.txtConn.Location = new System.Drawing.Point(94, 408);
+            this.txtConn.Name = "txtConn";
+            this.txtConn.Size = new System.Drawing.Size(614, 22);
+            this.txtConn.TabIndex = 0;
+            // 
+            // frmTitles
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.txtConn);
+            this.Name = "frmTitles";
+            this.Text = "Titles Database";
+            this.Load += new System.EventHandler(this.frmTitles_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtConn;
     }
 }
 
